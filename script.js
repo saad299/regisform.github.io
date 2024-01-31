@@ -1,37 +1,23 @@
 let form = document.querySelector('form');
-let firstnameInput = document.querySelector('#first-box');
-let lastnameInput = document.querySelector('#last-box');
 let usernameInput = document.querySelector('#user-box');
 let passwordInput = document.querySelector('#pass-box');
-let cnfrm_passwordInput = document.querySelector('#confrm-box');
-let signBtn = document.querySelector('#regis-btn');
+let signBtn = document.querySelector('#sign-btn');
 
 
 form.addEventListener('submit', (event) => {
   
   event.preventDefault();
 
-  if (firstnameInput.value === '' || passwordInput.value === '' || cnfrm_passwordInput.value === '') {
+  if (usernameInput.value === '' || passwordInput.value === '') {
     
-    alert('Please enter all the details!');
-  } else if (passwordInput.value !== cnfrm_passwordInput.value) {
-
-    alert('Your passwords do not match!');
+    alert('One or more details are incorrect/missing.');
   } else {
 
     form.submit();
-    alert('The registration has been successful!');
+    alert('The form has been successfully submitted!');
 
     setTimeout(() => {
         form.reset();
       }, 5);
     }
-});
-
-cnfrm_passwordInput.addEventListener('input', () => {
-  if (passwordInput.value !== cnfrm_passwordInput.value) {
-    cnfrm_passwordInput.setCustomValidity('Passwords do not match');
-  } else {
-    cnfrm_passwordInput.setCustomValidity('');
-  }
 });
